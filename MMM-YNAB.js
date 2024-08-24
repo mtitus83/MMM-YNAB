@@ -7,7 +7,8 @@ Module.register("MMM-YNAB", {
         redNegativeAmount: true,
         flashNegativeCategory: true,
         fontSize: "small",
-        singleLine: true
+        multiline: false,
+        categoriesPerLine: 3
     },
 
     start: function () {
@@ -18,10 +19,10 @@ Module.register("MMM-YNAB", {
         var wrapper = document.createElement("div");
         wrapper.className = "ynab-wrapper";
         
-        if (this.config.singleLine) {
-            wrapper.classList.add("single-line");
-        } else {
+        if (this.config.multiline) {
             wrapper.classList.add("multi-line");
+        } else {
+            wrapper.classList.add("single-line");
         }
         
         if (!this.result.items || this.result.items.length === 0) {
@@ -34,7 +35,7 @@ Module.register("MMM-YNAB", {
         let itemCount = 0;
 
         for (let item of this.result.items) {
-            if (!this.config.singleLine && itemCount % 3 === 0 && itemCount !== 0) {
+            if (this.config.multiline && itemCount % this.config.categoriesPerLine === 0 && itemCount !== 0) {
                 wrapper.appendChild(rowWrapper);
                 rowWrapper = document.createElement("div");
                 rowWrapper.className = "ynab-row";

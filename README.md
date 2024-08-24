@@ -29,7 +29,8 @@ var config = {
                 redNegativeAmount: true,
                 flashNegativeCategory: true,
                 fontSize: "small",
-                singleLine: true
+                multiline: false,
+                categoriesPerLine: 3
             }
         },
     ]
@@ -49,7 +50,8 @@ By default the first budget found in your account will be used. To specify a spe
 - `redNegativeAmount`: Display negative amounts in red (default: true)
 - `flashNegativeCategory`: Slowly flash negative category names (default: true)
 - `fontSize`: Font size specifically for negative categories. Options: "xsmall", "small", "medium", "large", "xlarge" (default: "small")
-- `singleLine`: Display all categories on a single line. If false, categories will be displayed with a maximum of 3 per line. (default: true)
+- `multiline`: Display categories on multiple lines. If false, all categories will be on a single line. (default: false)
+- `categoriesPerLine`: Number of categories to display per line when multiline is true. (default: 3)
 
 Note: The `fontSize` option only affects the font size of negative categories. Positive categories will maintain their default size.
 

@@ -43,9 +43,12 @@ By default the first budget found in your account will be used. To specify a spe
 
 ## Configuration Options
 
-- `token`: Your YNAB access token (required)
-- `categories`: Array of category names to display (required)
-- `budgetId`: Specific budget ID to use (optional)
+### Required Options:
+- `token`: Your YNAB access token
+- `categories`: Array of category names to display
+
+### Optional Options:
+- `budgetId`: Specific budget ID to use (if not provided, the first budget found will be used)
 - `boldNegativeCategory`: Bold the category name for negative balances (default: true)
 - `redNegativeAmount`: Display negative amounts in red (default: true)
 - `flashNegativeCategory`: Slowly flash negative category names (default: true)
@@ -61,7 +64,7 @@ You can customize the appearance of the module by modifying the `MMM-YNAB.css` f
 
 ## Update Interval
 
-This module updates the YNAB budget information every 90 seconds by default.
+This module updates the YNAB budget information every 90 seconds by default. Please note that this update interval is fixed and cannot be modified through the module's configuration options. If you need to change the update interval, you would need to modify the module's source code directly.
 
 ## Note on Support
 

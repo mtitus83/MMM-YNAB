@@ -4,13 +4,35 @@
  *
  */
 
- .module.MMM-YNAB .ynab-name {
-    margin-left: 15px;
-    margin-right: 5px;
+.module.MMM-YNAB .ynab-category {
+    margin-bottom: 5px;
+}
+
+.module.MMM-YNAB .ynab-name {
+    margin-right: 10px;
 }
 
 .module.MMM-YNAB .ynab-balance {
-    margin-left: 5px;
-    margin-right: 15px;
     color: green;
+}
+
+.module.MMM-YNAB .negative-category {
+    font-weight: bold;
+}
+
+.module.MMM-YNAB .increased-font {
+    font-size: 1.1em;
+}
+
+.module.MMM-YNAB .negative-amount {
+    color: red;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.module.MMM-YNAB .flashing {
+    animation: flash 2s linear infinite;
 }

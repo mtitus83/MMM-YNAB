@@ -6,14 +6,20 @@
 
 .ynab-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
 }
 
 .ynab-wrapper.single-line {
+    flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
+}
+
+.ynab-wrapper.multi-line .ynab-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
 }
 
 .ynab-category {

@@ -20,6 +20,8 @@ Module.register("MMM-YNAB", {
         
         if (this.config.singleLine) {
             wrapper.classList.add("single-line");
+        } else {
+            wrapper.classList.add("multi-line");
         }
         
         if (!this.result.items || this.result.items.length === 0) {
@@ -27,7 +29,17 @@ Module.register("MMM-YNAB", {
             return wrapper;
         }
 
+        let rowWrapper = document.createElement("div");
+        rowWrapper.className = "ynab-row";
+        let itemCount = 0;
+
         for (let item of this.result.items) {
+            if (!this.config.singleLine && itemCount % 3 === 0 && itemCount !== 0) {
+                wrapper.appendChild(rowWrapper);
+                rowWrapper = document.createElement("div");
+                rowWrapper.className = "ynab-row";
+            }
+
             let categoryWrapper = document.createElement("span");
             categoryWrapper.className = "ynab-category";
 
@@ -55,7 +67,12 @@ Module.register("MMM-YNAB", {
 
             categoryWrapper.appendChild(nameSpan);
             categoryWrapper.appendChild(balanceSpan);
-            wrapper.appendChild(categoryWrapper);
+            rowWrapper.appendChild(categoryWrapper);
+            itemCount++;
+        }
+
+        if (rowWrapper.childNodes.length > 0) {
+            wrapper.appendChild(rowWrapper);
         }
 
         return wrapper;

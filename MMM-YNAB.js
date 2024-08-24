@@ -4,11 +4,10 @@ Module.register("MMM-YNAB", {
         token: "",
         categories: [ "Household", "Pets", "Grocery", "Lunch", "Kids Clothes", "Restaurants", "Spontaneous Fun" ],
         boldNegativeCategory: true,
-        increaseFontSize: true,
         redNegativeAmount: true,
         flashNegativeCategory: true,
-        fontSize: "small", // New option for font size
-        singleLine: true   // New option to keep categories on a single line
+        fontSize: "small",
+        singleLine: true
     },
 
     start: function () {
@@ -17,7 +16,7 @@ Module.register("MMM-YNAB", {
 
     getDom: function () {
         var wrapper = document.createElement("div");
-        wrapper.className = this.config.fontSize + " ynab-wrapper";
+        wrapper.className = "ynab-wrapper";
         
         if (this.config.singleLine) {
             wrapper.classList.add("single-line");
@@ -41,12 +40,10 @@ Module.register("MMM-YNAB", {
             balanceSpan.textContent = "$" + (item.balance/1000).toFixed(2);
 
             if (item.balance < 0) {
+                nameSpan.classList.add("negative-category", this.config.fontSize);
+                
                 if (this.config.boldNegativeCategory) {
-                    nameSpan.classList.add("negative-category");
-                }
-                if (this.config.increaseFontSize) {
-                    nameSpan.classList.add("increased-font");
-                    balanceSpan.classList.add("increased-font");
+                    nameSpan.classList.add("bold-negative");
                 }
                 if (this.config.redNegativeAmount) {
                     balanceSpan.classList.add("negative-amount");

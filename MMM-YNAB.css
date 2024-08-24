@@ -4,41 +4,41 @@
  *
  */
 
-.module.MMM-YNAB .ynab-wrapper {
+.ynab-wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
 }
 
-.module.MMM-YNAB .ynab-wrapper.single-line {
+.ynab-wrapper.single-line {
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
 }
 
-.module.MMM-YNAB .ynab-category {
+.ynab-category {
     display: inline-flex;
     align-items: center;
     margin-right: 15px;
 }
 
-.module.MMM-YNAB .ynab-name {
+.ynab-name {
     margin-right: 5px;
 }
 
-.module.MMM-YNAB .ynab-balance {
+.ynab-balance {
     color: green;
 }
 
-.module.MMM-YNAB .negative-category {
+.negative-category {
+    color: red;
+}
+
+.bold-negative {
     font-weight: bold;
 }
 
-.module.MMM-YNAB .increased-font {
-    font-size: 1.1em;
-}
-
-.module.MMM-YNAB .negative-amount {
+.negative-amount {
     color: red;
 }
 
@@ -47,13 +47,13 @@
     50% { opacity: 0.5; }
 }
 
-.module.MMM-YNAB .flashing {
+.flashing {
     animation: flash 2s linear infinite;
 }
 
-/* Font size classes */
-.module.MMM-YNAB .xsmall { font-size: 15px; line-height: 20px; }
-.module.MMM-YNAB .small { font-size: 20px; line-height: 25px; }
-.module.MMM-YNAB .medium { font-size: 30px; line-height: 35px; }
-.module.MMM-YNAB .large { font-size: 65px; line-height: 65px; }
-.module.MMM-YNAB .xlarge { font-size: 75px; line-height: 75px; }
+/* Font size classes for negative categories */
+.negative-category.xsmall { font-size: 15px; }
+.negative-category.small { font-size: 20px; }
+.negative-category.medium { font-size: 30px; }
+.negative-category.large { font-size: 65px; }
+.negative-category.xlarge { font-size: 75px; }

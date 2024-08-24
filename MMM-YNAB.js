@@ -6,7 +6,9 @@ Module.register("MMM-YNAB", {
         boldNegativeCategory: true,
         increaseFontSize: true,
         redNegativeAmount: true,
-        flashNegativeCategory: true
+        flashNegativeCategory: true,
+        fontSize: "small", // New option for font size
+        singleLine: true   // New option to keep categories on a single line
     },
 
     start: function () {
@@ -15,7 +17,11 @@ Module.register("MMM-YNAB", {
 
     getDom: function () {
         var wrapper = document.createElement("div");
-        wrapper.className = "xsmall";
+        wrapper.className = this.config.fontSize + " ynab-wrapper";
+        
+        if (this.config.singleLine) {
+            wrapper.classList.add("single-line");
+        }
         
         if (!this.result.items || this.result.items.length === 0) {
             wrapper.innerHTML = "Loading YNAB";
@@ -23,7 +29,7 @@ Module.register("MMM-YNAB", {
         }
 
         for (let item of this.result.items) {
-            let categoryWrapper = document.createElement("div");
+            let categoryWrapper = document.createElement("span");
             categoryWrapper.className = "ynab-category";
 
             let nameSpan = document.createElement("span");

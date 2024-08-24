@@ -4,12 +4,26 @@
  *
  */
 
+.module.MMM-YNAB .ynab-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.module.MMM-YNAB .ynab-wrapper.single-line {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 .module.MMM-YNAB .ynab-category {
-    margin-bottom: 5px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
 }
 
 .module.MMM-YNAB .ynab-name {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .module.MMM-YNAB .ynab-balance {
@@ -36,3 +50,10 @@
 .module.MMM-YNAB .flashing {
     animation: flash 2s linear infinite;
 }
+
+/* Font size classes */
+.module.MMM-YNAB .xsmall { font-size: 15px; line-height: 20px; }
+.module.MMM-YNAB .small { font-size: 20px; line-height: 25px; }
+.module.MMM-YNAB .medium { font-size: 30px; line-height: 35px; }
+.module.MMM-YNAB .large { font-size: 65px; line-height: 65px; }
+.module.MMM-YNAB .xlarge { font-size: 75px; line-height: 75px; }
